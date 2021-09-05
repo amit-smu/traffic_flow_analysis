@@ -1,31 +1,30 @@
-import pandas as pd
+from datetime import time
 
-details = {
-    'Name': ['Sravan', 'Sai', 'Mohan', 'Ishitha'],
-    'College': ['Vignan', 'Vignan', 'Vignan', 'Vignan'],
-    'Physics': [99, 76, 71, 93],
-    'Chemistry': [97, 67, 65, 89],
-    'Data Science': [93, 65, 65, 85]
-}
+def decide_day_phase(time):
+    """
+    decides the phase of day (morning/noon/evening/night)
+    :param time:
+    :return:
+    """
 
-# converting to dataframe using DataFrame()
-df = pd.DataFrame(details)
-print("{}\n".format(df))
+    hour = time.hour
+    if hour >= 6 and hour <= 10: # till 10:59am 
+        return 0
+    elif hour >= 11 and hour <= 15:
+        return 1
+    elif hour >= 16 and hour <= 19:
+        return 2
+    else:
+        return 3
 
-details1 = {
-    'Name': ['Harsha', 'Saiteja', 'abhilash', 'harini'],
-    'College': ['vvit', 'vvit', 'vvit', 'vvit'],
-    'Physics': [69, 76, 51, 43],
-    'Chemistry': [67, 67, 55, 89],
-    'Maths': [73, 65, 61, 85]
-}
+DAY_PHASES = {
+        0: "morning",  # 6am - 11 am
+        1: "noon",  # 11am - 4 pm
+        2: "evening",  # 4pm - 8 pm
+        3: "night"  # 8 pm - 6 am
+    }
 
-# create dataframe
-df1 = pd.DataFrame(details1)
-print("{}\n".format(df1))
-
-df2 = pd.concat([df, df1], axis=0, ignore_index=True)
-print("{}\n".format(df2))
-
-df2 = pd.concat([df, df1], axis=0, ignore_index=False)
-print("{}\n".format(df2))
+t = time(hour=20, minute=30)
+a = decide_day_phase(t)
+print(t)
+print(DAY_PHASES[a])
