@@ -13,7 +13,7 @@ import numpy as np
 
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
-DEGREE = 1
+DEGREE = 4
 MOVING_AVG_WINDOW = 10  #
 
 
@@ -75,9 +75,9 @@ def fit_models(dframe):
     train_df = dframe.iloc[:training_len]
     test_df = dframe.iloc[training_len:].reset_index()
 
-    X_train = (train_df[['hour_norm', 'weekend']]).values
+    X_train = (train_df[['hour_norm', 'weekend', 'temp_norm']]).values
     Y_train = (train_df[['vehicle_count']]).values
-    X_test = (test_df[['hour_norm', 'weekend']]).values
+    X_test = (test_df[['hour_norm', 'weekend', 'temp_norm']]).values
     Y_test = (test_df[['vehicle_count']]).values
 
     # polynomial feature transformation
@@ -89,14 +89,14 @@ def fit_models(dframe):
     test_baseline_model(train_df, Y_train, Y_test)
 
     # traing models here
-    # model = LinearRegression()  # Linear
+    model = LinearRegression()  # Linear
     # model = Ridge()
     # model = SVR(kernel='rbf',C=1000)
-    model = RandomForestRegressor()
+    # model = RandomForestRegressor()
     # model = GradientBoostingRegressor()
 
 
-    model.fit(X=X_train_poly, y=Y_train.ravel())
+    model.fit(X=X_train_poly, y=Y_train)
     # training evaluation
     r_score_train = model.score(X=X_train_poly, y=Y_train)
     rmse_train = np.sqrt(mean_squared_error(y_true=Y_train, y_pred=model.predict(X_train_poly)))
@@ -121,9 +121,12 @@ if __name__ == "__main__":
     temperature_df = pd.read_csv(TEMPERATURE_FILE)
     rainfall_df = pd.read_csv(RAINFALL_FILE)
 
+    # merge dfs
     df = pd.merge(temperature_df, rainfall_df, on="timestamp")
     df = pd.merge(df, traffic_df, on="timestamp")
     print(df)
+
+    # plot df
     ax = df.plot(kind="line", y="vehicle_count")
     ax.set_xlabel("Sample Number")
     ax.set_ylabel("Number of Vehicles Detected")

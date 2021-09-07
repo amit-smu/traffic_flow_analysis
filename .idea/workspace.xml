@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6bb4254-6ed7-4776-a854-ee43d2795fdd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/traffic_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/traffic_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/traffic_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_analysis.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,14 +18,12 @@
       <file leaf-file-name="data_processor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="122" column="62" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
+            <state relative-caret-position="432">
+              <caret line="85" column="51" lean-forward="true" selection-start-line="85" selection-start-column="51" selection-end-line="85" selection-end-column="51" />
               <folding>
                 <element signature="e#87#106#0" expanded="true" />
                 <element signature="e#590#1075#0" />
                 <element signature="e#1134#2146#0" />
-                <element signature="e#2177#3937#0" />
-                <element signature="e#3134#3160#0" />
               </folding>
             </state>
           </provider>
@@ -306,22 +305,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/data_processor.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="27" />
+          <line>100</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="28" />
+      <option name="time" value="29" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>y_pred</expression-string>
+        <expression-string>model.predict(X_train_poly)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>X_train_poly</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>X_train</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Y_train.ravel()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
         <expression-string>Y_train</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>y_pred</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -342,21 +361,6 @@
       </expression>
       <expression>
         <expression-string>time.dt.hour</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>time</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>df['weekend'] = lambda df['day_of_week']: 0 if</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>df['day_of_week']&lt;=4</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -454,8 +458,6 @@
             <element signature="e#87#106#0" expanded="true" />
             <element signature="e#590#1075#0" />
             <element signature="e#1134#2146#0" />
-            <element signature="e#2177#3937#0" />
-            <element signature="e#3134#3160#0" />
           </folding>
         </state>
       </provider>
@@ -522,8 +524,6 @@
             <element signature="e#87#106#0" expanded="true" />
             <element signature="e#590#1075#0" />
             <element signature="e#1134#2146#0" />
-            <element signature="e#2177#3937#0" />
-            <element signature="e#3134#3160#0" />
           </folding>
         </state>
       </provider>
@@ -697,14 +697,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="122" column="62" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
+        <state relative-caret-position="432">
+          <caret line="85" column="51" lean-forward="true" selection-start-line="85" selection-start-column="51" selection-end-line="85" selection-end-column="51" />
           <folding>
             <element signature="e#87#106#0" expanded="true" />
             <element signature="e#590#1075#0" />
             <element signature="e#1134#2146#0" />
-            <element signature="e#2177#3937#0" />
-            <element signature="e#3134#3160#0" />
           </folding>
         </state>
       </provider>
