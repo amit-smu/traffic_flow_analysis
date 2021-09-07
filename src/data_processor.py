@@ -13,7 +13,7 @@ import numpy as np
 
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
-DEGREE = 2
+DEGREE = 1
 MOVING_AVG_WINDOW = 10  #
 
 
@@ -89,13 +89,14 @@ def fit_models(dframe):
     test_baseline_model(train_df, Y_train, Y_test)
 
     # traing models here
-    model = LinearRegression()  # Linear
-    # model = Ridge(alpha=0.5)
-    # model = SVR()
-    # model = RandomForestRegressor()
+    # model = LinearRegression()  # Linear
+    # model = Ridge()
+    # model = SVR(kernel='rbf',C=1000)
+    model = RandomForestRegressor()
     # model = GradientBoostingRegressor()
 
-    model.fit(X=X_train_poly, y=Y_train)
+
+    model.fit(X=X_train_poly, y=Y_train.ravel())
     # training evaluation
     r_score_train = model.score(X=X_train_poly, y=Y_train)
     rmse_train = np.sqrt(mean_squared_error(y_true=Y_train, y_pred=model.predict(X_train_poly)))
