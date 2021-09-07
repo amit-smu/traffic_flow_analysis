@@ -13,7 +13,7 @@ import numpy as np
 
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
-DEGREE = 3
+DEGREE = 2
 MOVING_AVG_WINDOW = 10  #
 
 
@@ -40,9 +40,27 @@ def get_day_phase(time):
         return 3
 
 
-def test_baseline_model(X_train, Y_train, Y_test):
-    print()
+def test_baseline_model(train_df, Y_train, Y_test):
+    """
+    always returns the mean of the vehicle count from training data
+    :param train_df:
+    :param Y_train:
+    :param Y_test:
+    :return:
+    """
+    veh_count_mean = train_df['vehicle_count'].mean()
 
+    # estimate performance of model
+    y_pred_training = np.full(shape=(len(Y_train), 1), fill_value=veh_count_mean)  # always returns the mean
+    y_pred_test = np.full(shape=(len(Y_test), 1), fill_value=veh_count_mean)  # always returns the mean
+
+    r2_score_training = r2_score(y_true=Y_train, y_pred=y_pred_training)
+    r2_score_test = r2_score(y_true=Y_test, y_pred=y_pred_test)
+    rmse_training = np.sqrt(mean_squared_error(y_true=Y_train, y_pred=y_pred_training))
+    rmse_test = np.sqrt(mean_squared_error(y_true=Y_test, y_pred=y_pred_test))
+    print("********* Baseline Model Performance ******\n")
+    print("Training Evaluation : R2-Score: {}, RMSE : {}\n".format(r2_score_training, rmse_training))
+    print("Test Evaluation : R2-Score: {}, RMSE : {}\n".format(r2_score_test, rmse_test))
 
 
 def fit_models(dframe):
@@ -68,6 +86,7 @@ def fit_models(dframe):
     X_test_poly = poly_features.transform(X=X_test)
 
     # Baseline model -- returns mean of the data
+    test_baseline_model(train_df, Y_train, Y_test)
 
     # traing models here
     model = LinearRegression()  # Linear
@@ -80,12 +99,15 @@ def fit_models(dframe):
     # training evaluation
     r_score_train = model.score(X=X_train_poly, y=Y_train)
     rmse_train = np.sqrt(mean_squared_error(y_true=Y_train, y_pred=model.predict(X_train_poly)))
+
+    # display results
+    print("************ Proposed Model Performance *********** \n")
     print("Training Evaluation: R2-Score : {}, RMSE : {}\n".format(r_score_train, rmse_train))
 
     # test data evaluation
     r_score_test = model.score(X=X_test_poly, y=Y_test)
     rmse_test = np.sqrt(mean_squared_error(y_true=Y_test, y_pred=model.predict(X_test_poly)))
-    print("Test Case Evaluation: R2-Score : {}, RMSE : {}\n".format(r_score_test, rmse_test))
+    print("Test Evaluation: R2-Score : {}, RMSE : {}\n".format(r_score_test, rmse_test))
 
 
 if __name__ == "__main__":
@@ -98,21 +120,13 @@ if __name__ == "__main__":
     temperature_df = pd.read_csv(TEMPERATURE_FILE)
     rainfall_df = pd.read_csv(RAINFALL_FILE)
 
-    # check data subsets
-    # traffic_sub = traffic_df.head(1000)
-    # temp_sub = temperature_df.head(1000)
-    # rain_sub = rainfall_df.head(1000)
-
-    # print("{}\n".format(traffic_sub))
-    # print("{}\n".format(temp_sub))
-    # print("{}\n".format(rain_sub))
-
-    # df = pd.concat([temp_sub, rain_sub], axis=0, ignore_index=True)
-    # print("{}\n".format(df))
-
     df = pd.merge(temperature_df, rainfall_df, on="timestamp")
     df = pd.merge(df, traffic_df, on="timestamp")
-    # print(len(df))
+    print(df)
+    ax = df.plot(kind="line", y="vehicle_count")
+    ax.set_xlabel("Sample Number")
+    ax.set_ylabel("Number of Vehicles Detected")
+    # plt.show()
 
     # add derived attributes to dataframe
     df['timestamp'] = pd.to_datetime(df['timestamp'], format="%Y-%m-%d-%H-%M-%S")
@@ -125,8 +139,10 @@ if __name__ == "__main__":
     df['hour'] = df['time'].apply(lambda x: x.hour)
 
     # pd.DataFrame.to_csv(df, "temp.txt")
-    # moving avg
+    # moving average to smooth vehicle_count data.
     df['vehicle_count'] = df['vehicle_count'].rolling(window=MOVING_AVG_WINDOW).mean()
+
+    # dropp NaN values from the dataset
     df = df.dropna()
     df['vehicle_count'] = df['vehicle_count'].astype("int32")
 
@@ -134,8 +150,6 @@ if __name__ == "__main__":
     df['rain_norm'] = (df['rainfall'] - df['rainfall'].min()) / (df['rainfall'].max() - df['rainfall'].min())
     df['temp_norm'] = (df['temperature'] - df['temperature'].min()) / (
             df['temperature'].max() - df['temperature'].min())
-    # df['traffic_norm'] = (df['vehicle_count'] - df['vehicle_count'].min()) / (
-    #         df['vehicle_count'].max() - df['vehicle_count'].min())
     df['dow_norm'] = (df['day_of_week'] - df['day_of_week'].min()) / (
             df['day_of_week'].max() - df['day_of_week'].min())
     df['hour_norm'] = (df['hour'] - df['hour'].min()) / (

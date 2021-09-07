@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6bb4254-6ed7-4776-a854-ee43d2795fdd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/traffic_data_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traffic_data_crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processor.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,29 +16,14 @@
       <file leaf-file-name="data_processor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data_processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="43" column="11" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+            <state relative-caret-position="224">
+              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
               <folding>
                 <element signature="e#87#106#0" expanded="true" />
-                <element signature="e#245#712#0" />
-                <element signature="e#1004#1054#1" />
-                <element signature="e#1075#1095#0" />
-                <element signature="e#4547#4623#0" />
-                <element signature="e#4991#5036#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="regression_est_poly_feat_bt_mid_optimized.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../edge_collaboration/edge_collaboration/src/spatial_correlation/wildtrack_files/coordinate_mapping/regression_est_poly_feat_bt_mid_optimized.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="101" selection-start-line="101" selection-end-line="104" selection-end-column="41" />
-              <folding>
-                <element signature="e#284#294#0" expanded="true" />
-                <element signature="e#5021#6107#0" />
-                <element signature="e#6552#6617#0" />
+                <element signature="e#590#1075#0" />
+                <element signature="e#1134#2146#0" />
+                <element signature="e#2177#3937#0" />
+                <element signature="e#3134#3160#0" />
               </folding>
             </state>
           </provider>
@@ -52,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -84,11 +68,12 @@
         <option value="$PROJECT_DIR$/src/test_filenames_creator.py" />
         <option value="$PROJECT_DIR$/src/test.py" />
         <option value="$PROJECT_DIR$/src/data_preprocessor.py" />
+        <option value="$PROJECT_DIR$/src/traffic_flow_analysis.ipynb" />
         <option value="$PROJECT_DIR$/src/data_processor.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="69" />
     <option name="y" value="214" />
     <option name="width" value="1380" />
@@ -276,11 +261,11 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1953125" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" x="1920" y="136" width="1366" height="745" id="Run" order="2" type="WINDOWED" visible="true" weight="0.5664187" />
+      <window_info active="true" anchor="bottom" x="1920" y="136" width="1366" height="745" id="Run" order="2" type="WINDOWED" visible="true" weight="0.5664187" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32942432" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32942432" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.65884864" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39872068" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -320,17 +305,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/data_processor.py</url>
-          <line>82</line>
-          <option name="timeStamp" value="25" />
+          <line>56</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="26" />
+      <option name="time" value="28" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>y_pred</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>Y_train</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>len(Y_train)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -364,26 +359,9 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>df</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>df['day_of_week'] = df['timestamp'].dt.weekday</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/yolo2txt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/result.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -473,11 +451,10 @@
           <caret line="49" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="e#87#106#0" expanded="true" />
-            <element signature="e#245#712#0" />
-            <element signature="e#1004#1054#1" />
-            <element signature="e#1075#1095#0" />
-            <element signature="e#4547#4623#0" />
-            <element signature="e#4991#5036#0" />
+            <element signature="e#590#1075#0" />
+            <element signature="e#1134#2146#0" />
+            <element signature="e#2177#3937#0" />
+            <element signature="e#3134#3160#0" />
           </folding>
         </state>
       </provider>
@@ -542,11 +519,10 @@
           <caret line="57" column="49" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
           <folding>
             <element signature="e#87#106#0" expanded="true" />
-            <element signature="e#245#712#0" />
-            <element signature="e#1004#1054#1" />
-            <element signature="e#1075#1095#0" />
-            <element signature="e#4547#4623#0" />
-            <element signature="e#4991#5036#0" />
+            <element signature="e#590#1075#0" />
+            <element signature="e#1134#2146#0" />
+            <element signature="e#2177#3937#0" />
+            <element signature="e#3134#3160#0" />
           </folding>
         </state>
       </provider>
@@ -611,24 +587,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/yolo2txt.py" />
     <entry file="file://$PROJECT_DIR$/src/result.txt" />
-    <entry file="file://$PROJECT_DIR$/src/air_temp_crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="38" column="42" lean-forward="true" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/result_50.txt" />
-    <entry file="file://$PROJECT_DIR$/src/rainfall_crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/find_missing_traffic.py" />
     <entry file="file://$PROJECT_DIR$/dataset/air_temp_S43/air_temp_data.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -679,16 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/traffic_data_crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="47" column="31" lean-forward="true" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -696,6 +645,40 @@
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traffic_flow_analysis.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traffic_data_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="36" column="49" lean-forward="true" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/air_temp_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="38" column="42" lean-forward="true" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rainfall_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="36" column="60" lean-forward="true" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -713,15 +696,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="43" column="11" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        <state relative-caret-position="224">
+          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
           <folding>
             <element signature="e#87#106#0" expanded="true" />
-            <element signature="e#245#712#0" />
-            <element signature="e#1004#1054#1" />
-            <element signature="e#1075#1095#0" />
-            <element signature="e#4547#4623#0" />
-            <element signature="e#4991#5036#0" />
+            <element signature="e#590#1075#0" />
+            <element signature="e#1134#2146#0" />
+            <element signature="e#2177#3937#0" />
+            <element signature="e#3134#3160#0" />
           </folding>
         </state>
       </provider>
